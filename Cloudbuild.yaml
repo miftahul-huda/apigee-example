@@ -3,7 +3,7 @@
 steps:
   # Step to build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/apigee-example-cicd:latest', '.']
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/apigee-example-cicd:latest', 'apigee-example/']
     # Replace 'image-name:tag' with your desired image name and tag.
 
   # Step to run the Docker container
