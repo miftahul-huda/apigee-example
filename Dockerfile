@@ -19,7 +19,7 @@ ENV APIGEE_USERNAME test
 ENV APIGEE_PASSWORD rotikeju98
 
 # Deploy the API proxy (replace with proxy name)
-# CMD ["apigeetool", "deploy", "--name", "my-apiproxy", "--bundle", "/app/apiproxy.zip", "--environment", "$APIGEE_ENV"]
+CMD ["apigeetool", "deploy", "--name", "my-apiproxy", "--bundle", "/app/apiproxy.zip", "--environment", "$APIGEE_ENV"]
 
 # Alternatively, specify deployment command in script
 # COPY deploy.sh /app/deploy.sh
