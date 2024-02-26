@@ -7,7 +7,8 @@ WORKDIR /app
 # Download and install apigeetool
 #RUN curl -sL https://apigee.enterprise/downloads/apigee-tool/v4.x | bash -s -- -v 4.19.03
 
-RUN npm install -g apigeetool
+RUN npm init
+RUN npm install apigeetool --save
 
 # Copy API proxy bundle (replace with your actual path)
 COPY apiproxy.zip /app/apiproxy.zip
