@@ -1,0 +1,20 @@
+# Define build steps
+steps:
+  - name: 'gcr.io/cloud-builders/docker'  # Use Docker builder image
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/apigee-deployer:latest', '.']  # Build a custom image
+
+  - name: 'gcr.io/$PROJECT_ID/apigee-deployer:latest'  # Use the built image
+    args: ['/bin/bash', '-c', '']  # Use bash in the container
+    # Replace these with your specific commands
+    script: |
+      # Set environment variables (replace with actual values)
+      export APIGEE_ORG=lv-playground-appdev
+      export APIGEE_ENV=eval
+      export APIGEE_USERNAME=testing
+      export APIGEE_PASSWORD=rotikeju98
+
+      # Install apigeetool (replace with your desired installation method)
+      curl -sL https://apigee.enterprise/downloads/apigee-tool/v4.x | bash -s -- -v 4.19.03
+
+      # Deploy the API proxy (replace with your proxy bundle path)
+      apigeetool deploy --name my-apiproxy --bundle apiproxy.zip --environment $APIGEE_ENV
